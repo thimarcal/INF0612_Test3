@@ -14,6 +14,24 @@ gcd2 <- function(x, y) {
   }
 }
 
+gcd <- function (...) {
+  # Ordenar os valores ajuda no cálculo
+  values <- sort(c(...))
+  
+  if(length(values) <= 1) {
+    warning('Falta valores para calcular o GCD')
+  } else if (length(values) == 2) {
+    return(gcd2(values[1], values[2]))
+  } else {
+    mdc <- gcd2(values[1], values[2])
+    
+    for (i in 3:length(values)) {
+      mdc <- gcd2(mdc, values[i])
+    }
+    
+    mdc
+  }
+}
 
 
 
