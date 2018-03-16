@@ -64,7 +64,25 @@ mode <- function(vec) {
 
 ## 3 - Binario para Decimal
 
-
+binToDec <- function (...) {
+  binario <- list(...)
+  
+  decimal <- vector(length=length(binario))
+  j <- 1
+  for (element in binario) {
+    number <- 0
+    for (i in 1:length(element)) {
+      if (element[i] > 1) {
+        warning('Invalid binary digit')
+        return(0)
+      }
+      number <- number + element[i]*2^(length(element)-i)
+    }
+    decimal[j] <- number
+    j <- j+1
+  }
+  decimal
+}
 
 
 
