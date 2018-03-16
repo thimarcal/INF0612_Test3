@@ -26,7 +26,7 @@ gcd <- function (...) {
     mdc <- gcd2(values[1], values[2])
     
     for (i in 3:length(values)) {
-      mdc <- gcd2(mdc, values[i])
+      mdc <- gcd2dim(b) (mdc, values[i])
     }
     
     mdc
@@ -48,7 +48,17 @@ count <- function(vector, element) {
   return(count)
 }
 
-
+mode <- function(vec) {
+  numbers <- unique(vec)
+  counts <- vector(length=length(numbers))
+  i <- 1
+  for (element in numbers) {
+    counts[i] <- count(vec, element)
+    i <- i+1
+  }
+  # Mostrar os maiores numeros
+  numbers[is.element(counts, max(counts))]
+}
 
 
 
