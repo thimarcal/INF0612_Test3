@@ -86,6 +86,28 @@ mode <- function(vector) {
 ## 3 - Binario para Decimal
 
 
+binToDec <- function(...) {
+
+  retvector <- c()
+
+  for(i in list(...)){
+
+    #Revert vector to work with increasing exponent
+    i <- rev(i)
+
+    #Calc total for n vector
+    total <- 0
+    exponent <- 0
+    for(n in i) {
+      total <- total + n*2^exponent
+      exponent <- exponent + 1
+    }
+
+    #Add total to return vector
+    retvector <- c(retvector, total)
+  }
+  return(retvector)
+}
 
 
 
