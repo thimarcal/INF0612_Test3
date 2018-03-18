@@ -14,24 +14,6 @@ gcd2 <- function(x, y) {
   }
 }
 
-gcd <- function (...) {
-  # Ordenar os valores ajuda no cálculo
-  values <- sort(c(...))
-  
-  if(length(values) <= 1) {
-    warning('Falta valores para calcular o GCD')
-  } else if (length(values) == 2) {
-    return(gcd2(values[1], values[2]))
-  } else {
-    mdc <- gcd2(values[1], values[2])
-    
-    for (i in 3:length(values)) {
-      mdc <- gcd2dim(b) (mdc, values[i])
-    }
-    
-    mdc
-  }
-}
 
 
 
@@ -48,41 +30,13 @@ count <- function(vector, element) {
   return(count)
 }
 
-mode <- function(vec) {
-  numbers <- unique(vec)
-  counts <- vector(length=length(numbers))
-  i <- 1
-  for (element in numbers) {
-    counts[i] <- count(vec, element)
-    i <- i+1
-  }
-  # Mostrar os maiores numeros
-  numbers[is.element(counts, max(counts))]
-}
+
 
 
 
 ## 3 - Binario para Decimal
 
-binToDec <- function (...) {
-  binario <- list(...)
-  
-  decimal <- vector(length=length(binario))
-  j <- 1
-  for (element in binario) {
-    number <- 0
-    for (i in 1:length(element)) {
-      if (element[i] > 1) {
-        warning('Invalid binary digit')
-        return(0)
-      }
-      number <- number + element[i]*2^(length(element)-i)
-    }
-    decimal[j] <- number
-    j <- j+1
-  }
-  decimal
-}
+
 
 
 
