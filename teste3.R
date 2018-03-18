@@ -53,7 +53,33 @@ count <- function(vector, element) {
   return(count)
 }
 
+mode <- function(vector) {
 
+  #Initialize moda with first element
+  if(length(vector) > 0){
+    totalCount <- 1
+    moda <- vector[1]
+  }
+
+  for(i in vector) {
+
+    icount <- count(vector, i)
+    #if count of i is the bigest untill now, then update moda
+    if(icount > totalCount) {
+      moda <- i
+      totalCount <- icount
+    }
+    #if already have a number with same # of occurrences
+    #add value to moda vector
+    if(icount == totalCount) {
+      if(!is.element(i, moda)) {
+        moda <- c(moda, i)
+      }
+    }
+  }
+  return(moda)
+  
+}
 
 
 
