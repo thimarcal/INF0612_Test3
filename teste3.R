@@ -5,7 +5,7 @@
 ########################################
 
 
-## 1 - Maximo Divisor Comum
+## 1 - Maximo Divisor Comumrep
 gcd2 <- function(x, y) {
   if (y == 0) {
     return(x)
@@ -28,7 +28,7 @@ gcd <- function (...) {
     mdc <- gcd2(values[1], values[2])
     
     for (i in 3:length(values)) {
-      mdc <- gcd2dim(b) (mdc, values[i])
+      mdc <- gcd2(mdc, values[i])
     }
     mdc
   }
