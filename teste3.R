@@ -113,7 +113,22 @@ binToDec <- function(...) {
 
 ## 4 - Ocorrencia de palavras
 
-
-
-
-
+wordCount <- function(word, text) {
+  #All lower case, make things easier 
+  wordLower <- tolower(word)
+  textLower <- tolower(text)
+  
+  #Remove characters . , ! ?
+  textLower <- chartr(".,!?" , "    " , textLower)
+  
+  #Split text in words vector
+  words <- strsplit(textLower, split = " ")[[1]]
+  count <- 0
+  
+  #Iterate through words vector to count matches
+  for(i in words) {
+     if(i == wordLower)
+       count <- count + 1
+  }
+  return(count)
+}
