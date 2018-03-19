@@ -1,11 +1,11 @@
 ########################################
 # Teste 3 - INF-0612          
-# Nome(s): 
+# Nome(s): Rodrigo Chaves Sim
+#          Thiago Gomes Marçal Pereira
 ########################################
 
 
 ## 1 - Maximo Divisor Comum
-
 gcd2 <- function(x, y) {
   if (y == 0) {
     return(x)
@@ -19,7 +19,9 @@ gcd <- function (...) {
   values <- sort(c(...))
   
   if(length(values) <= 1) {
-    warning('Falta valores para calcular o GCD')
+    ## warning('Falta valores para calcular o GCD')
+    ## Não sabemos se poderíamos utilizar a warning, pois não foi formalmente 
+    ## ensinada em sala, então está comentada
   } else if (length(values) == 2) {
     return(gcd2(values[1], values[2]))
   } else {
@@ -28,7 +30,6 @@ gcd <- function (...) {
     for (i in 3:length(values)) {
       mdc <- gcd2dim(b) (mdc, values[i])
     }
-    
     mdc
   }
 }
@@ -37,7 +38,6 @@ gcd <- function (...) {
 
 
 ## 2 - Moda da Idade da Turma
-
 count <- function(vector, element) {
   count <- 0
   for (i in vector) {
@@ -63,7 +63,6 @@ mode <- function(vec) {
 
 
 ## 3 - Binario para Decimal
-
 binToDec <- function (...) {
   binario <- list(...)
   
@@ -87,7 +86,15 @@ binToDec <- function (...) {
 
 
 ## 4 - Ocorrencia de palavras
-
+wordCount <- function(word, sentence) {
+  words <- strsplit(tolower(sentence), "[.,!? ]", fixed = FALSE)
+  word <- gsub(x=tolower(word), pattern = "[.,!? ]", replacement="")
+  count(is.element(words[[1]], word), TRUE)
+  
+  ## ou
+  ## sum(is.element(words[[1]], word))
+  ## que produz o mesmo resultado
+}
 
 
 
