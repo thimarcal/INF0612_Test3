@@ -14,26 +14,30 @@ gcd2 <- function(x, y) {
   }
 }
 
-gcd <- function (...) {
-  # Ordenar os valores ajuda no cálculo
-  values <- sort(c(...))
+gcd <- function(...) {
   
-  if(length(values) <= 1) {
-    ## warning('Falta valores para calcular o GCD')
-    ## Não sabemos se poderíamos utilizar a warning, pois não foi formalmente 
-    ## ensinada em sala, então está comentada
-  } else if (length(values) == 2) {
-    return(gcd2(values[1], values[2]))
-  } else {
+  values <- c(...)
+  valuesLen <- length(values)
+  
+  #if more than 1 value, calc base mdc with
+  #first 2 values
+  if(valuesLen > 1 ){
     mdc <- gcd2(values[1], values[2])
-    
-    for (i in 3:length(values)) {
-      mdc <- gcd2(mdc, values[i])
-    }
-    mdc
   }
+  #if only 1 value, return itself
+  else{
+    return(values[1])
+  }
+  
+  #If length => 3, calc mdc for each value with
+  # base mdc and update base mdc
+  i <- 3
+  while(i <= valuesLen) {
+    mdc <- gcd2(values[i], mdc)
+    i <- i + 1
+  }
+  return(mdc)
 }
-
 
 
 
